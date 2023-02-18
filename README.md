@@ -1,6 +1,4 @@
-# Cozybot
-
-
+![](https://github.com/LemurDev/CozyBot.png) 
 
 ## TODO:
 Cozy meter visualization(sliding bar and once it gets to 100% (or 0%) some event happens)

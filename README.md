@@ -12,8 +12,8 @@ pip install -r requirements.txt
 ```
 
 Create a `.env` file. In this file you need two variables:
-- TOKEN
-- CHANNEL_NAME
+- TWITCH_ACCESS_TOKEN
+- TWITCH_CHANNEL_NAME
 
 Token will be generated from [Token Generator](https://twitchtokengenerator.com/)
 

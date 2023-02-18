@@ -16,6 +16,7 @@ Create a `.env` file. In this file you need two variables:
 - CHANNEL_NAME
 
 Token will be generated from [Token Generator](https://twitchtokengenerator.com/)
+
 Assign a channel name you want the bot to start in
 
 # Running the Bot
@@ -38,4 +39,5 @@ CozyBot will output to a file named `cozy.txt`. The value will only change **IF*
 # Developed Live
 
 [lemur_dev](https://www.twitch.tv/lemur_dev)
+
 [kidbillyy](https://twitch.tv/kidbillyy)

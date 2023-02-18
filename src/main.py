@@ -18,6 +18,7 @@ class Bot(commands.Bot):
     async def event_ready(self):
         print(f'Logged in as | {self.nick}')
 
+    @commands.cooldown(rate=1, per=60, bucket=commands.Bucket.user)
     @commands.command()
     async def cozy(self, ctx: commands.Context):
         cozyness = str(random.randint(0, 100))

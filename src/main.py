@@ -1,7 +1,7 @@
-from twitchio.ext import commands
 import os
-from dotenv import load_dotenv
 import random
+from twitchio.ext import commands
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -12,7 +12,8 @@ class Bot(commands.Bot):
 
     def __init__(self):
         super().__init__(token=os.environ.get("TOKEN"),
-                         prefix='?', initial_channels=[os.environ.get("CHANNEL_NAME")])
+                         prefix='?',
+                         initial_channels=[os.environ.get("CHANNEL_NAME")])
 
     async def event_ready(self):
         print(f'Logged in as | {self.nick}')
@@ -30,5 +31,6 @@ class Bot(commands.Bot):
             self.old_cozyness = cozyness
 
 
-bot = Bot()
-bot.run()
+if __name__ == "__main__":
+    bot = Bot()
+    bot.run()

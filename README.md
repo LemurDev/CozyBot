@@ -1,9 +1,43 @@
 ![](https://github.com/LemurDev/CozyBot/blob/main/CozyBot.png) 
 
-## TODO:
-- Cozy meter visualization(sliding bar and once it gets to 100% (or 0%) some event happens)
-- Something should happen if a user gets 100% cozy
-- Cozy prayer makes cozyness precent higher via odds
-- Cooldown for cozy command
-- Progress bar represents the percentage of cozyness reached
-- Sometime of Multiplier?
+# What is CozyBot?
+
+CozyBot is a Twitch bot based on **COZYNESS**!! This bot is mainly being developed by Lemur and Billy. But, we are more than happy to see the community join in!
+
+# Setup
+
+Install requirements via requirements.txt
+```bash
+pip install -r requirements.txt
+```
+
+Create a `.env` file. In this file you need two variables:
+- TOKEN
+- CHANNEL_NAME
+
+Token will be generated from [Token Generator](https://twitchtokengenerator.com/)
+
+Assign a channel name you want the bot to start in
+
+# Running the Bot
+
+## Windows
+
+**Currently being worked on.**
+
+## Linux
+
+```bash
+./run_liunx
+```
+This will run the Twitch bot for you. Make sure you follow the setup instructions!
+
+# Display on Stream
+
+CozyBot will output to a file named `cozy.txt`. The value will only change **IF** the cozyness is higher than before. You could then read from this text file to display the highest cozyness.
+
+# Developed Live
+
+[lemur_dev](https://www.twitch.tv/lemur_dev)
+
+[kidbillyy](https://twitch.tv/kidbillyy)

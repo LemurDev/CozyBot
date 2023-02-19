@@ -1,5 +1,6 @@
 import os
 import random
+import time
 from twitchio.ext import commands
 from dotenv import load_dotenv
 
@@ -23,6 +24,8 @@ class Bot(commands.Bot):
         # Clear file contents on startup
         with open("cozy.txt", 'r+') as file:
             file.truncate(0)
+        with open("100_cozy.txt", 'r+') as file:
+            file.truncate(0)
 
     # Check if any command is on cooldown
     async def event_command_error(self, ctx, error: Exception):
@@ -33,15 +36,36 @@ class Bot(commands.Bot):
     @commands.cooldown(rate=1, per=60, bucket=commands.Bucket.user)
     @commands.command()
     async def cozy(self, ctx: commands.Context):
-        cozyness = str(random.randint(0, 100))
+        cozyness = str(random.randint(100, 100))
         user = ctx.author.name
-        await ctx.send(f"@{ctx.author.name} is {cozyness}% cozy!")
+        await ctx.send(f"@{user} is {cozyness}% cozy!")
 
+        # If new cozyness is greater than the old value
         if int(cozyness) > int(self.old_cozyness):
+            # Open cozy.txt
             with open("cozy.txt", "w") as file:
+                # Write new user cozyness
                 file.write(f"{user}-{cozyness}%")
                 file.close()
+            # Set the new greatest value
             self.old_cozyness = cozyness
+
+            # If user cozynees is 100
+            if int(cozyness) == 100:
+                # Tell user in chat
+                await ctx.send(f"@{user} has reached 100% cozyness!")
+                # Open a new file to store username
+                with open("100_cozy.txt", "w") as file:
+                    # Write to text file
+                    file.write(f"{user} has reached 100% cozyness!")
+                    file.close()
+                    time.sleep(5)
+                    # Reopen it
+                    f = open("100_cozy.txt", "w")
+                    # Delete contents
+                    f.truncate(0)
+                # Reset old_cozyness
+                self.old_cozyness = 0
 
     # Project Command
     @commands.command()

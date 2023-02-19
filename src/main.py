@@ -20,6 +20,9 @@ class Bot(commands.Bot):
     # On Bot Startup
     async def event_ready(self):
         print(f'Logged in as | {self.nick}')
+        # Clear file contents on startup
+        with open("cozy.txt", 'r+') as file:
+            file.truncate(0)
 
     # Check if any command is on cooldown
     async def event_command_error(self, ctx, error: Exception):
@@ -35,7 +38,6 @@ class Bot(commands.Bot):
         await ctx.send(f"@{ctx.author.name} is {cozyness}% cozy!")
 
         if int(cozyness) > int(self.old_cozyness):
-
             with open("cozy.txt", "w") as file:
                 file.write(f"{user}-{cozyness}%")
                 file.close()
@@ -45,6 +47,16 @@ class Bot(commands.Bot):
     @commands.command()
     async def project(self, ctx):
         await ctx.send(f"@{ctx.author.name} - https://github.com/LemurDev/CozyBot")
+
+    # Lurk Command
+    @commands.command()
+    async def lurk(self, ctx):
+        await ctx.send(f"@{ctx.author.name} is lurking under the blankets!")
+
+    # Unlurk Command
+    @commands.command()
+    async def unlurk(self, ctx):
+        await ctx.send(f"@{ctx.author.name} has come back from under the blankets!")
 
 
 if __name__ == "__main__":

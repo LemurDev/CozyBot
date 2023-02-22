@@ -36,7 +36,7 @@ class Bot(commands.Bot):
     @commands.cooldown(rate=1, per=60, bucket=commands.Bucket.user)
     @commands.command()
     async def cozy(self, ctx: commands.Context):
-        cozyness = str(random.randint(100, 100))
+        cozyness = str(random.randint(0, 100))
         user = ctx.author.name
         await ctx.send(f"@{user} is {cozyness}% cozy!")
 

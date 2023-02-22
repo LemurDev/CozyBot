@@ -36,6 +36,10 @@ This will run the Twitch bot for you. Make sure you follow the setup instruction
 
 CozyBot will output to a file named `cozy.txt`. The value will only change **IF** the cozyness is higher than before. You could then read from this text file to display the highest cozyness.
 
+It will also output to a file named `100_cozy.txt`. This will display the username who got 100% cozy. The file will then clear its contents so it "disappears".
+
+All these files can then be viewed a text file on OBS for example.
+
 # Developed Live
 
 [lemur_dev](https://www.twitch.tv/lemur_dev)
